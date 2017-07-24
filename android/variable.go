@@ -94,6 +94,10 @@ type variableProperties struct {
 		Pdk struct {
 			Enabled *bool
 		}
+
+		Has_legacy_camera_hal1 struct {
+			Cflags []string
+		}
 	} `android:"arch_variant"`
 }
 
@@ -164,6 +168,7 @@ type productVariables struct {
 	Override_rs_driver *string `json:",omitempty"`
 
 	Libart_img_base            *string `json:",omitempty"`
+	Has_legacy_camera_hal1     *bool `json:",omitempty"`
 }
 
 func boolPtr(v bool) *bool {
