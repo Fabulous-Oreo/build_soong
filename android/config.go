@@ -478,6 +478,11 @@ func (c *config) LibartImgHostBaseAddress() string {
 
 func (c *config) LibartImgDeviceBaseAddress() string {
 	archType := Common
+
+	if c.ProductVariables.Libart_img_base != nil &&
+		*c.ProductVariables.Libart_img_base != "" {
+		return *c.ProductVariables.Libart_img_base
+	}
 	if len(c.Targets[Device]) > 0 {
 		archType = c.Targets[Device][0].Arch.ArchType
 	}
