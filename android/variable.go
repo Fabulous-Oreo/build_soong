@@ -162,6 +162,8 @@ type productVariables struct {
 	BtConfigIncludeDir *string `json:",omitempty"`
 
 	Override_rs_driver *string `json:",omitempty"`
+
+	Libart_img_base            *string `json:",omitempty"`
 }
 
 func boolPtr(v bool) *bool {
