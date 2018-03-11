@@ -280,7 +280,7 @@ func (stripper *stripper) AndroidMk(ctx AndroidMkContext, ret *android.AndroidMk
 	}
 
 	ret.Extra = append(ret.Extra, func(w io.Writer, outputFile android.Path) error {
-		if stripper.StripProperties.Strip.None {
+		if stripper.StripProperties.Strip.None || strings.HasSuffix(ret.SubName, vendorSuffix) {
 			fmt.Fprintln(w, "LOCAL_STRIP_MODULE := false")
 		} else if stripper.StripProperties.Strip.Keep_symbols {
 			fmt.Fprintln(w, "LOCAL_STRIP_MODULE := keep_symbols")
